@@ -194,17 +194,17 @@
     </svg>
 
     <div class="container">
-        <header class="border-bottom lh-1 py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-
-                </div>
-                <div class="col-4 text-center">
-                    <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"></a>
-                </div>
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                </div>
-            </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            {{-- <div class="container">
+              <a href="#" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <strong>Album</strong>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div> --}}
+          </div>
         </header>
 
         <main class="container">
@@ -223,7 +223,7 @@
             <div class="row g-5">
                 <div class="col-md-8">
                     <article class="blog-post">
-                        <h3>Maiores Empresas do Brasil</h3>
+                        <h3>Brasil</h3>
                         <table class="table table-hover table-bordered">
                             <thead class="table-dark">
                                 <tr>
@@ -237,12 +237,12 @@
                             <tbody>
                                 @foreach ($data1 as $index1 => $row1)
                                     @if ($index1 != 0 and $index1 != 1)
-                                        <!-- Excluir a primeira linha -->
                                         <tr>
-                                            <!-- Exibir apenas as colunas desejadas -->
                                             <td>{{ $index1 - 1 }}</td>
-                                            <td><img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row1['nome'])) }}.png"
-                                                    height="48px" width="48px"></td>
+                                            <td style="align-items: center; width: 100px;"> <!-- Defina a largura aqui -->
+                                                <img src="images/PNG LOGO EMPRESAS/{{ strtolower(trim($row1['nome'])) }}.jpg"
+                                                     style="width: 100%; display: block; max-width: 100px; height: auto;"> <!-- Ajuste as dimensões da imagem conforme necessário -->
+                                            </td>
                                             <td style="align-items: flex-start">
                                                 <a type="button" class="btn btn-link" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal1{{ $loop->index }}">{{ trim($row1['nome']) }}</a>
@@ -262,12 +262,12 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <ul>
-                                                                    <img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row1['nome'])) }}.png" height="48px" width="130px">
-                                                                  <ul>
-                                                                    <li><strong>Ano de Fundação</strong>: {{ $row1['ano'] }}</li>
-                                                                    <li>{{ $row1['obs'] }}</li>
-                                                                    <li><a href="http://{{ $row1['site'] }}" target="_blank">Visite o Site</a></li>
-                                                                  </ul>
+                                                                    <img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row1['nome'])) }}.jpg" style="width: 100%; display: block; max-width: 100px; height: auto;">
+                                                                    <ul>
+                                                                        <li><strong>Ano de Fundação</strong>: {{ $row1['ano'] }}</li>
+                                                                        <li>{{ $row1['obs'] }}</li>
+                                                                        <li><a href="http://{{ $row1['site'] }}" target="_blank">Visite o Site</a></li>
+                                                                    </ul>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -285,12 +285,12 @@
                     </article>
 
                     <article class="blog-post">
-                        <h2 class="display-5 link-body-emphasis mb-1">Aproveitando ...</h2>
-                        <p class="blog-post-meta">Maio 08, 2024 by <a href="#">Juliana</a></p>
+                        <h2 class="display-8 fst-italic">Explorando ainda mais</h2>
 
                         <p>Neste artigo, colocamos o foco nas empresas de destaque Mundial em 2024, identificando-as com 
                           base em seu valor de mercado. Prepare-se para uma imersão em um panorama detalhado das 
                           10 principais empresas, onde exploramos o que as coloca no topo deste cenário empresarial.</p>
+                          <br></br>
                         {{-- <blockquote>
                             <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of
                                 it.</p>
@@ -299,7 +299,7 @@
                             available space and show how a longer snippet of text affects the surrounding content. We'll
                             repeat it often to keep the demonstration flowing, so be on the lookout for this exact same
                             string of text.</p> --}}
-                        <h3>Maiores Empresas do Mundo</h3>
+                        <h3>Global</h3>
                         <table class="table table-hover table-bordered">
                             <thead class="table-dark">
                                 <tr>
@@ -318,8 +318,10 @@
                                         <tr>
                                             <!-- Exibir apenas as colunas desejadas -->
                                             <td>{{ $index - 1 }}</td>
-                                            <td><img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row['nome'])) }}.png"
-                                                    height="48px" width="48px"></td>
+                                            <td>
+                                                <img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row['nome'])) }}.jpg"
+                                                style="width: 100%; display: block; max-width: 90px; height: auto;">
+                                            </td>
                                             <td style="align-items: flex-start">
                                                 <a type="button" class="btn btn-link" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal{{ $loop->index }}">
@@ -350,7 +352,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                               <ul>
-                                                                  <img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row['nome'])) }}.png" height="48px" width="130px">
+                                                                  <img src="images\PNG LOGO EMPRESAS/{{ strtolower(trim($row['nome'])) }}.jpg" style="width: 100%; display: block; max-width: 100px; height: auto;">
                                                                 <ul>
                                                                   <li><strong>Ano de Fundação</strong>: {{ $row['ano'] }}</li>
                                                                   <li>{{ $row['obs'] }}</li>
@@ -362,7 +364,6 @@
                                                     </div>
                                                 </div>
                                             </td>
-
                                             <td>{{ $row['setor'] }}</td>
                                             <td>{{ $row['pais'] }}</td>
                                             <td>{{ $row['valor'] }}</td>
